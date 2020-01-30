@@ -5,7 +5,7 @@ const Form = props => {
   const [member, setMember] = useState([]);
 
   const handleChanges = e => {
-    const value = e.type === 'option' ? e.target.selected : e.target.value;
+    const value = e.type === 'option' ? [e.target.selected] : [e.target.value];
     setMember({
       ...member,
       [e.target.name]: e.target.value
@@ -15,7 +15,7 @@ const Form = props => {
   const submitForm = e => {
     e.preventDefault();
     props.addNewMember(member);
-    setMember([{name: member.name, gitName: member.gitName, email: member.email, role: member.role}])
+    setMember([{name: member.name, gitName: member.gitName, email: member.email, role: [member.role]}])
   }
 
   console.log("props after form", member)
@@ -33,9 +33,9 @@ const Form = props => {
   //  }, [searchTerm]);
 
     return (
-<div>
+    <div>
       <form onSubmit={submitForm}>
-        <legend>Add A New Member</legend>
+        <legend style={{fontSize: 1.8 + 'rem'}}>Add A New Member</legend>
         <label htmlFor="name">Team Member:</label>
         <input id="name" type="text" name="name" onChange={handleChanges} value={member.name} required />
         <br/>
@@ -46,7 +46,7 @@ const Form = props => {
         <input id="email" type="text" name="email" onChange={handleChanges} value={member.email} required />
         <br/>
         <label>Member Role:</label>
-        <select id="role" name="role"  onChange={handleChanges} value={member.role} size="2" multiple >
+        <select id="role" name="role"  onChange={handleChanges} value={[member.role]} size="2" >
           <option value="Web Dev">Web Dev</option>
           <option value="Android">Mobile Dev - Android</option>
           <option value="iOs">Mobile Dev - iOs</option>

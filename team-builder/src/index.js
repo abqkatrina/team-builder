@@ -14,7 +14,7 @@ function App() {
     }
 
   ])
-  const addNewMember = member => {
+  const addNewMember = member => { 
     const newMember = {
       name: member.name,
       gitName: member.gitName,

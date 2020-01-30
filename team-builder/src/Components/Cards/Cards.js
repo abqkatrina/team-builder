@@ -7,7 +7,7 @@ const Cards = props => {
       {props.members.map(member => (
         //console.log("member in card-list", member),
         <div className='card' key={props.members.name}>
-          <h3>{member.name}</h3>
+          <h2>{member.name}</h2>
           <p>{member.gitName}</p>
           <p>{member.email}</p>
           <p>{member.role}</p>
