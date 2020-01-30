@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const Form = props => {
-  console.log("props in Form", props);
+  //console.log("props in Form", props);
   const [member, setMember] = useState([]);
 
   const handleChanges = e => {
-    console.log("handling changes",member)
     const value = e.type === 'option' ? e.target.selected : e.target.value;
     setMember({
       ...member,
@@ -19,6 +18,7 @@ const Form = props => {
     setMember([{name: member.name, gitName: member.gitName, email: member.email, role: member.role}])
   }
 
+  console.log("props after form", member)
   // const [searchTerm, setSearchTerm] = React.useState("");
   // const [searchResults, setSearchResults] = React.useState([]);
   // const handleSearch = event => {
@@ -46,7 +46,7 @@ const Form = props => {
         <input id="email" type="text" name="email" onChange={handleChanges} value={member.email} required />
         <br/>
         <label>Member Role:</label>
-        <select value={member.role} onChange={handleChanges}  size="2" multiple >
+        <select id="role" name="role"  onChange={handleChanges} value={member.role} size="2" multiple >
           <option value="Web Dev">Web Dev</option>
           <option value="Android">Mobile Dev - Android</option>
           <option value="iOs">Mobile Dev - iOs</option>
