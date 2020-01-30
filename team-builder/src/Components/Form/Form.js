@@ -1,40 +1,40 @@
 import React, { useState } from "react";
 
-class Form extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state= { name: "" };
+const Form = props => {
+  console.log("props in Form", props);
+  const [member, setMember] = useState([]);
 
-  this.handleInputChange = this.handleInputChange.bind(this);
-  this.handleInputSubmit = this.handleInputSubmit.bind(this);
-};
-
-  handleInputChange = e => {
+  const handleChanges = e => {
+    console.log(member)
     const target = e.target;
-    const value = e.type === 'option' ? target.selected :
-    target.value;
-    const name= target.name;
-
-    this.setMember({ name: e.target.value });
+    const value = e.type === 'option' ? target.selected : target.value;
+    setMember({
+      ...member,
+      [e.target.name]: e.target.value
+    });
   };
 
-  render() {
+  const submitForm = e => {
+    e.preventDefault();
+    props.addNewMember(member);
+    setMember([{name: member.name, gitName: member.gitName, email: member.email, role: member.role}])
+  }
 
     return (
 
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={submitForm}>
 
-        <label htmlFor="title">Team Member:</label>
-        <input id="name" type="text" name="title" onChange={this.handleChange} />
-       
+        <label htmlFor="name">Team Member:</label>
+        <input id="name" type="text" name="name" onChange={handleChanges} value={member.name}/>
+        <br/>
         <label>gitHub Username:</label>
-        <input></input>
-
+        <input id="gitName" type="text" name="gitName" onChange={handleChanges} value={member.gitName}/>
+        <br/>
         <label>Member Email:</label>
-        <input></input> 
-
+        <input id="email" type="text" name="email" onChange={handleChanges} value={member.email}/>
+        <br/>
         <label>Member Role:</label>
-        <select value={this.state.value} onChange={this.handleChange}>
+        <select value={member.value} onChange={handleChanges}>
           <option value="Web Dev">Web Dev</option>
           <option value="Android">Mobile Dev - Android</option>
           <option value="iOs">Mobile Dev - iOs</option>
@@ -42,11 +42,11 @@ class Form extends React.Component {
           <option value="UI/UX">UI/UX</option>
         </select>
         
-        <button type="submit" onSubmit={this.handleInputChange.submit}>Add Member</button>
+        <button type="submit" onSubmit={submitForm}>Add Member</button>
      
       </form>
     );
-  }
-};
+}
+
 
 export default Form;
