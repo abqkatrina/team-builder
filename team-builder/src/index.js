@@ -28,8 +28,16 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <Form  addNewMember={addNewMember} />
-        <Cards members={members}/>
       </header>
+      <div>
+        <Cards members={members}>
+          <ul>
+            {members.map(member => (
+              <li key={member.name}></li>
+            ))}
+          </ul>
+        </Cards>
+      </div>
     </div>
   );
 }
