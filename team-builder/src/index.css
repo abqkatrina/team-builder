@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+form {
+  background-color: aliceblue;
+  color: darkgreen;
+  padding: 2rem 4rem;
+  text-align: left;
+  line-height: 2.2rem;
+  border: 2px solid darkgreen;
+}
+
+button {
+  background-color: palevioletred;
+  border: none;
+  border-radius: 5px;
+  color: aliceblue;
+  font-size: 1.4rem;
+}
+
+input {
+  color: palevioletred;
+}
+
+label {
+  color: palevioletred;
+  font-weight: 300;
+  font-size: 1.6rem;
+  margin-right: 5px;
+}
+
+.card {
+  background-color: peachpuff;
+  color: palevioletred;
+  width: 80%;
+  margin: 0 10%;
+}
+
+p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* letter-spacing: .1rem; */
+  font-size: 1.6rem;
+}
+
+select {
+  color: palevioletred;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: auto;
+  grid-gap: 20px;
+  grid-auto-flow: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2rem;
+  list-style: none;
+}
