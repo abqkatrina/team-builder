@@ -6,13 +6,21 @@ import './App.css';
 
 function App() {
  
+
+  const addNewMember = member => {
+    const newMember = {
+      id: Date.now(),
+      title: member.title,
+      body: member.body
+    };
+  };
   
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Form />
-        <Cards person={person} />
+        <Form addNewMember={addNewMember} />
+        <Cards />
       </header>
     </div>
   );
